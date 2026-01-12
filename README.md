@@ -33,7 +33,12 @@ CurrenX is a modern and interactive currency converter web application that prov
 
 ---
 
-## 📸 Screenshots (optional)
+## 📸 Screenshots
 
-> Add screenshots for better portfolio presentation:
+### Light Mode
+![Light Mode](screenshots/light.png)
+
+### Dark Mode
+![Dark Mode](screenshots/dark.png)
+
 
