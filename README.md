@@ -1,31 +1,39 @@
-# Currency Converter WebApp
+# 🚀 CurrenX — Fintech Currency Converter Web App
 
-This is a responsive and interactive currency converter web application developed using HTML, CSS, and JavaScript. It allows users to convert between global currencies in real time using a free exchange rate API.
-
-## Features
-
-- Real-time exchange rate conversion
-- Dynamic dropdowns with country flags
-- Responsive layout for all screen sizes
-- Modern, clean user interface
-- Built entirely with vanilla JS, HTML, and CSS
-
-## Tech Stack
-
-- HTML5
-- CSS3
-- JavaScript (ES6+)
-- Exchange Rate API (e.g., exchangerate.host)
-
-## Live Demo
-
-[View Live Project](#)  
-*Replace `#` with your GitHub Pages link*
-
-## License
-
-This project is open source under the MIT License.
+CurrenX is a modern and interactive currency converter web application that provides real-time forex exchange rates with a clean fintech-styled interface. Users can convert between global currencies, swap currency pairs instantly, and toggle between dark and light themes.
 
 ---
 
-Created by **Srushti Dumbhare**
+## ✨ Features
+
+- 🔁 **Real-Time Currency Conversion**
+- 🇺🇸➡️🇮🇳 **Country Flags for Currency Selection**
+- 🔄 **Instant Swap (From ↔ To)**
+- 🌙 **Dark/Light Mode with LocalStorage Persistence**
+- 💱 **Currency Symbols for Better Readability**
+- 📱 **Responsive Layout (Mobile + Desktop)**
+- 🎨 **Fintech-Inspired UI/UX**
+- 🟦 **Built with Vanilla JS, HTML & CSS**
+
+---
+
+## 🛠 Tech Stack
+
+- **HTML5**
+- **CSS3**
+- **JavaScript (ES6+)**
+- **Exchange Rate API**
+- **LocalStorage**
+
+---
+
+## 🔗 Live Demo
+
+👉 _Add your GitHub Pages / Netlify link here_
+
+---
+
+## 📸 Screenshots (optional)
+
+> Add screenshots for better portfolio presentation:
+
