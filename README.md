@@ -29,7 +29,7 @@ CurrenX is a modern and interactive currency converter web application that prov
 
 ## 🔗 Live Demo
 
-👉 _Add your GitHub Pages / Netlify link here_
+👉 https://srushtidumbhare7-ad.github.io/currenx-currency-converter/
 
 ---
 
