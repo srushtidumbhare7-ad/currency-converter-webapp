@@ -1,22 +1,24 @@
 const BASE_URL = "https://api.exchangerate-api.com/v4/latest";
 
-
 const dropdowns = document.querySelectorAll(".dropdown select");
 const btn = document.querySelector("form button");
 const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
 const msg = document.querySelector(".msg");
 
+// Populate dropdowns
 for (let select of dropdowns) {
   for (currCode in countryList) {
     let newOption = document.createElement("option");
     newOption.innerText = currCode;
     newOption.value = currCode;
+
     if (select.name === "from" && currCode === "USD") {
       newOption.selected = "selected";
     } else if (select.name === "to" && currCode === "INR") {
       newOption.selected = "selected";
     }
+
     select.append(newOption);
   }
 
@@ -25,24 +27,27 @@ for (let select of dropdowns) {
   });
 }
 
+// Update conversion
 const updateExchangeRate = async () => {
   let amount = document.querySelector(".amount input");
   let amtVal = amount.value;
+
   if (amtVal === "" || amtVal < 1) {
     amtVal = 1;
     amount.value = "1";
   }
-const URL = `${BASE_URL}/${fromCurr.value}`;
 
+  const URL = `${BASE_URL}/${fromCurr.value}`;
   let response = await fetch(URL);
   let data = await response.json();
   let rate = data.rates[toCurr.value];
 
+  let finalAmount = (amtVal * rate).toFixed(2);
 
-  let finalAmount = amtVal * rate;
-  msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
+  msg.innerText = `${symbols[fromCurr.value] || ""}${amtVal} ${fromCurr.value} = ${symbols[toCurr.value] || ""}${finalAmount} ${toCurr.value}`;
 };
 
+// Update flags
 const updateFlag = (element) => {
   let currCode = element.value;
   let countryCode = countryList[currCode];
@@ -51,11 +56,50 @@ const updateFlag = (element) => {
   img.src = newSrc;
 };
 
+// Convert button click
 btn.addEventListener("click", (evt) => {
   evt.preventDefault();
   updateExchangeRate();
 });
 
+// Swap button logic
+const swapBtn = document.querySelector(".swap-btn");
+
+swapBtn.addEventListener("click", () => {
+  let temp = fromCurr.value;
+  fromCurr.value = toCurr.value;
+  toCurr.value = temp;
+
+  updateFlag(fromCurr);
+  updateFlag(toCurr);
+  updateExchangeRate();
+});
+
+// 🌙 Dark Mode Toggle
+const themeToggle = document.querySelector(".theme-toggle");
+
+// Apply saved theme on load
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+  themeToggle.textContent = "☀️";
+} else {
+  themeToggle.textContent = "🌙";
+}
+
+// Toggle theme + save preference
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+    themeToggle.textContent = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    themeToggle.textContent = "🌙";
+  }
+});
+
+// Load initial conversion
 window.addEventListener("load", () => {
   updateExchangeRate();
 });
